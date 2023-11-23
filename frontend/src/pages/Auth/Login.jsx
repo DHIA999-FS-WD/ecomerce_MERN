@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Layout from "./../../components/Layout";
+import Layout from "../../components/Layout/Layout";
 import axios from "axios";
 import { useNavigate, useLocation } from "react-router-dom";
 import toast from "react-hot-toast";
@@ -22,7 +22,7 @@ const Login = () => {
         password,
       });
       if (res && res.data.success) {
-        toast.success(res.data && res.data.message);
+        alert(res.data && res.data.message);
         setAuth({
           ...auth,
           user: res.data.user,

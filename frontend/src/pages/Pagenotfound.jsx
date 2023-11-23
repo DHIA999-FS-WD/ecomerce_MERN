@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import Layout from "./../components/Layout";
+import Layout from "../components/Layout/Layout";
 const Pagenotfound = () => {
   return (
     <Layout title={"go back- page not found"}>
