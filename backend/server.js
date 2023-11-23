@@ -2,7 +2,7 @@ const express = require("express");
 const dotenv = require("dotenv");
 const connectDB = require("./config/connectDB");
 const authRoutes = require("./routes/authRoute");
-
+const cors = require("cors");
 //configure env
 dotenv.config();
 
@@ -13,6 +13,7 @@ connectDB();
 const app = express();
 
 //middelwares
+app.use(cors());
 app.use(express.json());
 
 //routes
