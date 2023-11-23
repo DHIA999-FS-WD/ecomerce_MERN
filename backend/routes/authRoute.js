@@ -6,6 +6,7 @@ const {
   registerController,
   loginController,
   testController,
+  forgotPasswordController,
 } = require("../controllers/authController");
 // middelwares
 const { requireSignIn, isAdmin } = require("../middlewares/authMiddleware");
@@ -15,7 +16,13 @@ const { requireSignIn, isAdmin } = require("../middlewares/authMiddleware");
 router.post("/register", registerController);
 //LOGIN || MOTHOD POST
 router.post("/login", loginController);
+//Forgot Password || POST
+router.post("/forgot-password", forgotPasswordController);
 //TEST || GET
 router.get("/test", requireSignIn, isAdmin, testController);
+//protected route auth
+router.get("/user-auth", requireSignIn, (req, res) => {
+  res.status(200).send({ ok: true });
+});
 
 module.exports = router;
